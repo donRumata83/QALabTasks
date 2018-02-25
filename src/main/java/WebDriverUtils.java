@@ -1,7 +1,10 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.util.List;
 
 public class WebDriverUtils {
     private static final String URL = "http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/";
@@ -36,5 +39,22 @@ public class WebDriverUtils {
         driver.findElement(By.className("img-thumbnail")).click();
         driver.findElement(By.id("header_logout")).click();
         return driver;
+    }
+
+    public static void checkTheButtons(WebDriver driver) {
+        List<WebElement> buttonsOnMainTab = driver.findElements(By.className("maintab"));
+        System.out.println(buttonsOnMainTab.size());
+        System.out.println(buttonsOnMainTab.get(0));
+        for (WebElement element : buttonsOnMainTab) {
+            element.click();
+            waitForOneSecond(driver);
+            String tempURL = driver.getCurrentUrl();
+            System.out.println(tempURL);
+            driver.navigate().refresh();
+            waitForOneSecond(driver);
+            System.out.println("Is the user stays on the same page = " + tempURL.equals(driver.getCurrentUrl()));
+            driver.navigate().back();
+            waitForOneSecond(driver);
+        }
     }
 }
