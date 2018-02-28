@@ -42,11 +42,8 @@ public class WebDriverUtils {
     }
 
     public static void checkTheButtons(WebDriver driver) {
-        List<WebElement> buttonsOnMainTab = driver.findElements(By.className("maintab"));
-        System.out.println(buttonsOnMainTab.size());
-        System.out.println(buttonsOnMainTab.get(0));
-        for (WebElement element : buttonsOnMainTab) {
-            element.click();
+        for (int i = 0; i < 13; i++) {
+            driver.findElement(By.xpath("/html/body/nav/ul/li[" + 1 + "]")).click();
             waitForOneSecond(driver);
             String tempURL = driver.getCurrentUrl();
             System.out.println(tempURL);
@@ -55,6 +52,9 @@ public class WebDriverUtils {
             System.out.println("Is the user stays on the same page = " + tempURL.equals(driver.getCurrentUrl()));
             driver.navigate().back();
             waitForOneSecond(driver);
+            driver.navigate().back();
+            waitForOneSecond(driver);
         }
+
     }
 }
