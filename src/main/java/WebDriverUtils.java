@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.io.File;
 import java.util.List;
 
 public class WebDriverUtils {
@@ -12,7 +13,7 @@ public class WebDriverUtils {
     private static final String PASS = "Xcg7299bnSmMuRLp9ITw";
 
     public static WebDriver initChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", new File(WebDriverUtils.class.getResource("/chromedriver.exe").getFile()).getPath());
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         return new ChromeDriver(options);
