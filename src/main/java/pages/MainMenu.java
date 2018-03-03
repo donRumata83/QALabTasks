@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.enums.URLHolder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,8 +10,7 @@ import org.openqa.selenium.WebElement;
 public class MainMenu extends Page {
     private String url;
 
-    private By userIcon = By.className("img-thumbnail");
-    private By logout = By.id("header_logout");
+
     private By menuButtons = By.xpath("/html/body/div/div/nav/ul/li[contains(@class, 'maintab')]");
 
     MainMenu(WebDriver driver) {
@@ -18,16 +18,10 @@ public class MainMenu extends Page {
         this.url = URLHolder.MAIN_MENU_PAGE.getURL();
     }
 
-    public LoginPage logout() {
-        driver.findElement(userIcon).click();
-        driver.findElement(logout).click();
-        return new LoginPage(driver);
-    }
-
-    public MainMenu checkForAllMenuButtons(){
-        for (int i = 1; i < driver.findElements(menuButtons).size()+1; i++) {
-            WebElement element = driver.findElement(By.xpath("/html/body/div/div/nav/ul/li[contains(@class, 'maintab')]"+ "[" + i + "]"));
-            if (element.getText().equals("Dashboard")){
+    public MainMenu checkForAllMenuButtons() {
+        for (int i = 1; i < driver.findElements(menuButtons).size() + 1; i++) {
+            WebElement element = driver.findElement(getMenuButton(i));
+            if (element.getText().equals("Dashboard")) {
                 checkDasboardButton(element);
             } else {
                 checkOtherMainMenuButtons(element);
@@ -36,23 +30,29 @@ public class MainMenu extends Page {
         return this;
     }
 
+    public KatalogPage clickKatalogButton() {
+        driver.findElement(getMenuButton(3)).click();
+        waiter.until(ExpectedConditions.presenceOfElementLocated(userIcon));
+        return new KatalogPage(driver);
+    }
+
     private void checkOtherMainMenuButtons(WebElement element) {
         element.click();
-        WebDriverUtils.waitForOneSecond(driver);
+        waitForLoad();
         String tmp = showCurrentUrl();
         driver.navigate().refresh();
-        WebDriverUtils.waitForOneSecond(driver);
+        waitForLoad();
         checkIsOnTheSameURl(isUrlEquals(tmp));
         driver.navigate().back();
-        WebDriverUtils.waitForOneSecond(driver);
+        waitForLoad();
     }
 
     private void checkDasboardButton(WebElement element) {
         element.click();
-        WebDriverUtils.waitForOneSecond(driver);
+        waitForLoad();
         String tmp = showCurrentUrl();
         driver.navigate().refresh();
-        WebDriverUtils.waitForOneSecond(driver);
+        waitForLoad();
         checkIsOnTheSameURl(isUrlEquals(tmp));
     }
 
@@ -67,5 +67,9 @@ public class MainMenu extends Page {
     private String showCurrentUrl() {
         System.out.println(driver.getCurrentUrl());
         return driver.getCurrentUrl();
+    }
+
+    private By getMenuButton(int number) {
+        return By.xpath("/html/body/div/div/nav/ul/li[contains(@class, 'maintab')]" + "[" + number + "]");
     }
 }

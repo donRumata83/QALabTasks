@@ -22,6 +22,7 @@ public class LoginPage extends Page {
         driver.findElement(email).sendKeys(UserData.LOGIN.getData());
         driver.findElement(pass).sendKeys(UserData.PASS.getData());
         driver.findElement(submit).click();
+        waitForLoad();
         return new MainMenu(driver);
     }
 }
