@@ -1,5 +1,6 @@
-package Pages;
+package pages;
 
+import pages.enums.URLHolder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,9 +10,9 @@ import java.util.List;
 public class MainMenu extends Page {
     private String url;
 
-    private String userIconLocator = "img-thumbnail";
-    private String logoutLocator = "header_logout";
-    private String menuElements = "maintab";
+    private By userIcon = By.className("img-thumbnail");
+    private By logout = By.id("header_logout");
+    private By menuButtons = By.className("maintab");
 
     MainMenu(WebDriver driver) {
         super(driver);
@@ -19,13 +20,13 @@ public class MainMenu extends Page {
     }
 
     public LoginPage logout() {
-        driver.findElement(By.className(userIconLocator)).click();
-        driver.findElement(By.id(logoutLocator)).click();
+        driver.findElement(userIcon).click();
+        driver.findElement(logout).click();
         return new LoginPage(driver);
     }
 
     public MainMenu checkForAllMenuButtons(){
-        List<WebElement> list = driver.findElements(By.className("maintab"));
+        List<WebElement> list = driver.findElements(menuButtons);
         for (WebElement element: list) {
             if (element.getText().equals("Dashboard")){
                 checkDasboardButton(element);
