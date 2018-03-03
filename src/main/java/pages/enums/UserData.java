@@ -1,4 +1,4 @@
-package Pages;
+package pages.enums;
 
 public enum UserData {
     LOGIN("webinar.test@gmail.com"), PASS("Xcg7299bnSmMuRLp9ITw");

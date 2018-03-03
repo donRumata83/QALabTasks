@@ -5,14 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
 
 public class MainMenu extends Page {
     private String url;
 
     private By userIcon = By.className("img-thumbnail");
     private By logout = By.id("header_logout");
-    private By menuButtons = By.className("maintab");
+    private By menuButtons = By.xpath("/html/body/div/div/nav/ul/li[contains(@class, 'maintab')]");
 
     MainMenu(WebDriver driver) {
         super(driver);
@@ -26,8 +25,8 @@ public class MainMenu extends Page {
     }
 
     public MainMenu checkForAllMenuButtons(){
-        List<WebElement> list = driver.findElements(menuButtons);
-        for (WebElement element: list) {
+        for (int i = 1; i < driver.findElements(menuButtons).size()+1; i++) {
+            WebElement element = driver.findElement(By.xpath("/html/body/div/div/nav/ul/li[contains(@class, 'maintab')]"+ "[" + i + "]"));
             if (element.getText().equals("Dashboard")){
                 checkDasboardButton(element);
             } else {
