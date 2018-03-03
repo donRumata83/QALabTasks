@@ -8,23 +8,11 @@ import java.io.File;
 import java.util.List;
 
 public class WebDriverUtils {
-    private static final String URL = "http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/";
-    private static final String EMAIL = "webinar.test@gmail.com";
-    private static final String PASS = "Xcg7299bnSmMuRLp9ITw";
-
     public static WebDriver initChromeDriver() {
         System.setProperty("webdriver.chrome.driver", new File(WebDriverUtils.class.getResource("/chromedriver.exe").getFile()).getPath());
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         return new ChromeDriver(options);
-    }
-
-    public static WebDriver login(WebDriver driver) {
-        driver.get(URL);
-        driver.findElement(By.name("email")).sendKeys(EMAIL);
-        driver.findElement(By.name("passwd")).sendKeys(PASS);
-        driver.findElement(By.name("submitLogin")).click();
-        return driver;
     }
 
     public static WebDriver waitForOneSecond(WebDriver driver) {
@@ -33,12 +21,6 @@ public class WebDriverUtils {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return driver;
-    }
-
-    public static WebDriver logout(WebDriver driver) {
-        driver.findElement(By.className("img-thumbnail")).click();
-        driver.findElement(By.id("header_logout")).click();
         return driver;
     }
 
