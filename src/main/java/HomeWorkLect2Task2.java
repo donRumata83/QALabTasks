@@ -1,16 +1,18 @@
-import org.openqa.selenium.By;
+import Pages.LoginPage;
+import Pages.MainMenu;
+import Pages.WebDriverUtils;
 import org.openqa.selenium.WebDriver;
 
 
 public class HomeWorkLect2Task2 {
     public static void main(String[] args) {
         WebDriver driver = WebDriverUtils.initChromeDriver();
-        //WebDriverUtils.login(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        MainMenu mainPage = loginPage.login();
         WebDriverUtils.waitForOneSecond(driver);
-        WebDriverUtils.checkTheButtons(driver);
-        if (driver.findElement(By.className("img-thumbnail")).isDisplayed()) {
-            //WebDriverUtils.logout(driver);
-        }
+        mainPage.checkForAllMenuButtons();
+        mainPage.logout();
+        WebDriverUtils.waitForOneSecond(driver);
         driver.quit();
     }
 }

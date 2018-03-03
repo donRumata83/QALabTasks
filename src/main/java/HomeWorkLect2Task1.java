@@ -1,5 +1,6 @@
 import Pages.LoginPage;
 import Pages.MainMenu;
+import Pages.WebDriverUtils;
 import org.openqa.selenium.WebDriver;
 
 public class HomeWorkLect2Task1 {
