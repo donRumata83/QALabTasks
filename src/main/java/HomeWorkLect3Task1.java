@@ -6,8 +6,10 @@ public class HomeWorkLect3Task1 {
         WebDriver driver = WebDriverUtils.initChromeDriver();
         LoginPage loginPage = new LoginPage(driver);
         MainMenu mainPage = loginPage.login();
-        KatalogPage katalog = mainPage.clickKatalogButton();
-        KategoryPage kategory = katalog.clickCategoryButton();
+        CatalogPage catalog = mainPage.clickKatalogButton();
+        CategoryPage category = catalog.clickCategoryButton();
+        NewCategoryPage newCategory = category.clickNewCategoryButton();
+        category = newCategory.createNewCategory();
 
     }
 }

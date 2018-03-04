@@ -4,19 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.enums.URLHolder;
 
-public class KatalogPage extends Page {
+public class CatalogPage extends Page {
     private String url;
 
     private By category = By.xpath("html/body/nav/ul/li[4]/ul/li[2]");
 
-    KatalogPage(WebDriver driver) {
+    CatalogPage(WebDriver driver) {
         super(driver);
         this.url = URLHolder.KATALOG.getURL();
     }
 
-    public KategoryPage clickCategoryButton() {
+    public CategoryPage clickCategoryButton() {
         driver.findElement(category).click();
         waitForLoad();
-        return new KategoryPage(driver);
+        return new CategoryPage(driver);
     }
 }

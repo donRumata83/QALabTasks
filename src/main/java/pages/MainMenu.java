@@ -30,10 +30,10 @@ public class MainMenu extends Page {
         return this;
     }
 
-    public KatalogPage clickKatalogButton() {
+    public CatalogPage clickKatalogButton() {
         driver.findElement(getMenuButton(3)).click();
-        waiter.until(ExpectedConditions.presenceOfElementLocated(userIcon));
-        return new KatalogPage(driver);
+        waitForLoad();
+        return new CatalogPage(driver);
     }
 
     private void checkOtherMainMenuButtons(WebElement element) {

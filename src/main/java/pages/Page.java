@@ -29,7 +29,7 @@ class Page {
     }
 
     void waitForLoad() {
-            waiter.until(ExpectedConditions.presenceOfElementLocated(logo));
+        waiter.until(ExpectedConditions.presenceOfElementLocated(logo));
     }
 }
 
