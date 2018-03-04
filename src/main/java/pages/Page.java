@@ -10,7 +10,7 @@ class Page {
     WebDriverWait waiter;
     By userIcon = By.className("img-thumbnail");
     By logout = By.id("header_logout");
-    By logo = By.id("header_logo");
+    By logo = By.id("header_logout");
     By catalogLogo = By.className("logo pull-left");
 
     Page(WebDriver driver) {
@@ -29,12 +29,7 @@ class Page {
     }
 
     void waitForLoad() {
-        try {
             waiter.until(ExpectedConditions.presenceOfElementLocated(logo));
-        } catch (Exception e) {
-            waiter.until(ExpectedConditions.presenceOfElementLocated(catalogLogo));
-        }
-
     }
 }
 
