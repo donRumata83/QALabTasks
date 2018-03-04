@@ -7,11 +7,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 class Page {
     WebDriver driver;
-    WebDriverWait waiter;
-    By userIcon = By.className("img-thumbnail");
-    By logout = By.id("header_logout");
-    By logo = By.id("header_logout");
-    By catalogLogo = By.className("logo pull-left");
+    private WebDriverWait waiter;
+    private By userIcon = By.className("img-thumbnail");
+    private By logout = By.id("header_logout");
+
 
     Page(WebDriver driver) {
         this.driver = driver;
@@ -29,7 +28,7 @@ class Page {
     }
 
     void waitForLoad() {
-        waiter.until(ExpectedConditions.presenceOfElementLocated(logo));
+        waiter.until(ExpectedConditions.presenceOfElementLocated(logout));
     }
 }
 

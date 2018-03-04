@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.enums.URLHolder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

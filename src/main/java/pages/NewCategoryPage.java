@@ -2,33 +2,29 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import pages.enums.URLHolder;
-
-import java.util.List;
 
 public class NewCategoryPage extends Page {
     private String url;
 
-    By nameField = By.xpath("html/body/div/div[2]/div[5]/div/form/div/div[2]/div/div/div/div[1]");
-    By nameField2 = By.xpath(".//[contains(@class, 'translatable-field lang-1')][1]");
-    By cpu = By.xpath(".//[contains(@class, 'translatable-field lang-1')][6]");
-    By submit = By.id("category_form_submit_btn");
-    By fields = By.className("translatable-field");
+    private By success = By.className("alert alert-success");
+    private By submit = By.id("category_form_submit_btn");
+    private By firstField = By.xpath("//*[@id=\"name_1\"]");
+    private By cpuField = By.xpath("//*[@id=\"link_rewrite_1\"]");
     private String categoryName = "New Category";
     private String cpuName = "cpu";
 
-    public NewCategoryPage(WebDriver driver) {
+    NewCategoryPage(WebDriver driver) {
         super(driver);
         this.url = URLHolder.NEWKATEGORY.getURL();
     }
 
     public CategoryPage createNewCategory() {
-        List<WebElement> list = driver.findElements(fields);
-        list.get(1).sendKeys(categoryName);
-        list.get(6).sendKeys(cpuName);
+        driver.findElement(firstField).sendKeys(categoryName);
+        driver.findElement(cpuField).sendKeys(cpuName);
         driver.findElement(submit).click();
         waitForLoad();
+        System.out.println(driver.findElement(success).getText());
         return new CategoryPage(driver);
     }
 

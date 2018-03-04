@@ -8,6 +8,7 @@ public class CategoryPage extends Page {
     private String url;
 
     private By newCategory = By.id("page-header-desc-category-new_category");
+    private By sortByName = By.xpath("//*[@id=\"table-category\"]/thead/tr[1]/th[3]/span/a[1]/i");
 
     CategoryPage(WebDriver driver) {
         super(driver);
@@ -18,5 +19,9 @@ public class CategoryPage extends Page {
         driver.findElement(newCategory).click();
         waitForLoad();
         return new NewCategoryPage(driver);
+    }
+
+    public void sortListByName(){
+        driver.findElement(sortByName).click();
     }
 }
