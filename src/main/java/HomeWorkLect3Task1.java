@@ -10,6 +10,6 @@ public class HomeWorkLect3Task1 {
         CategoryPage category = catalog.clickCategoryButton();
         NewCategoryPage newCategory = category.clickNewCategoryButton();
         category = newCategory.createNewCategory();
-category.sortListByName();
+        category.sortListByName();
     }
 }

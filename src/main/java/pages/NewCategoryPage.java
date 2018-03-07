@@ -21,10 +21,10 @@ public class NewCategoryPage extends Page {
 
     public CategoryPage createNewCategory() {
         driver.findElement(firstField).sendKeys(categoryName);
+        driver.findElement(cpuField).clear();
         driver.findElement(cpuField).sendKeys(cpuName);
         driver.findElement(submit).click();
         waitForLoad();
-        System.out.println(driver.findElement(success).getText());
         return new CategoryPage(driver);
     }
 

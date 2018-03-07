@@ -9,6 +9,7 @@ public class CategoryPage extends Page {
 
     private By newCategory = By.id("page-header-desc-category-new_category");
     private By sortByName = By.xpath("//*[@id=\"table-category\"]/thead/tr[1]/th[3]/span/a[1]/i");
+    private By nameOfCategoryInTable = By.xpath("//td[contains(text(), 'New Category')]");
 
     CategoryPage(WebDriver driver) {
         super(driver);
@@ -23,5 +24,8 @@ public class CategoryPage extends Page {
 
     public void sortListByName(){
         driver.findElement(sortByName).click();
+        customWait(nameOfCategoryInTable);
     }
+
+
 }

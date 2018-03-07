@@ -30,5 +30,9 @@ class Page {
     void waitForLoad() {
         waiter.until(ExpectedConditions.presenceOfElementLocated(logout));
     }
+
+    void customWait(By element){
+        waiter.until(ExpectedConditions.presenceOfElementLocated(element));
+    }
 }
 

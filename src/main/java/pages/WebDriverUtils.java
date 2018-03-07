@@ -23,36 +23,4 @@ public class WebDriverUtils {
         }
         return driver;
     }
-
-    public static void checkTheButtons(WebDriver driver) {
-        int counter = 0;
-        for (int i = 0; i < 13; i++) {
-            if (i != 0) {
-                driver.findElements(By.className("maintab")).get(i).click();
-                waitForOneSecond(driver);
-                String tempURL = driver.getCurrentUrl();
-                System.out.println(tempURL);
-                driver.navigate().refresh();
-                waitForOneSecond(driver);
-                if (tempURL.equals(driver.getCurrentUrl())) {
-                    System.out.println("Is the user stays on the same page = true");
-                    counter++;
-                } else break;
-                driver.navigate().back();
-                waitForOneSecond(driver);
-            } else {
-                driver.findElements(By.className("maintab")).get(i).click();
-                waitForOneSecond(driver);
-                String tempURL = driver.getCurrentUrl();
-                System.out.println(tempURL);
-                driver.navigate().refresh();
-                waitForOneSecond(driver);
-                if (tempURL.equals(driver.getCurrentUrl())) {
-                    System.out.println("Is the user stays on the same page = true");
-                    counter++;
-                } else break;
-            }
-        }
-        System.out.println(counter);
-    }
 }
