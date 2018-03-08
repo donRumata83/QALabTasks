@@ -1,7 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import pages.enums.URLHolder;
 
 public class NewCategoryPage extends Page {
@@ -14,7 +14,7 @@ public class NewCategoryPage extends Page {
     private String categoryName = "New Category";
     private String cpuName = "cpu";
 
-    NewCategoryPage(WebDriver driver) {
+    NewCategoryPage(EventFiringWebDriver driver) {
         super(driver);
         this.url = URLHolder.NEWKATEGORY.getURL();
     }

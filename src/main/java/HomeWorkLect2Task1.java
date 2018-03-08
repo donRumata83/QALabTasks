@@ -1,11 +1,11 @@
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import pages.LoginPage;
 import pages.MainMenu;
 import pages.WebDriverUtils;
-import org.openqa.selenium.WebDriver;
 
 public class HomeWorkLect2Task1 {
     public static void main(String[] args) {
-        WebDriver driver = WebDriverUtils.initChromeDriver();
+        EventFiringWebDriver driver = WebDriverUtils.initDriver(args[0]);
         LoginPage loginPage = new LoginPage(driver);
         MainMenu mainPage = loginPage.login();
         WebDriverUtils.waitForOneSecond(driver);

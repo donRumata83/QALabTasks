@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import pages.enums.URLHolder;
 
 public class CategoryPage extends Page {
@@ -11,7 +12,7 @@ public class CategoryPage extends Page {
     private By sortByName = By.xpath("//*[@id=\"table-category\"]/thead/tr[1]/th[3]/span/a[1]/i");
     private By nameOfCategoryInTable = By.xpath("//td[contains(text(), 'New Category')]");
 
-    CategoryPage(WebDriver driver) {
+    CategoryPage(EventFiringWebDriver driver) {
         super(driver);
         this.url = URLHolder.KATEGORY.getURL();
     }

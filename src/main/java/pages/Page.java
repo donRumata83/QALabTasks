@@ -2,17 +2,18 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 class Page {
-    WebDriver driver;
+    EventFiringWebDriver driver;
     private WebDriverWait waiter;
     private By userIcon = By.className("img-thumbnail");
     private By logout = By.id("header_logout");
 
 
-    Page(WebDriver driver) {
+    Page(EventFiringWebDriver driver) {
         this.driver = driver;
         this.waiter = new WebDriverWait(driver, 10);
     }

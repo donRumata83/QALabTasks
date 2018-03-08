@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import pages.enums.URLHolder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,7 @@ public class MainMenu extends Page {
 
     private By menuButtons = By.xpath("/html/body/div/div/nav/ul/li[contains(@class, 'maintab')]");
 
-    MainMenu(WebDriver driver) {
+    MainMenu(EventFiringWebDriver driver) {
         super(driver);
         this.url = URLHolder.MAIN_MENU_PAGE.getURL();
     }

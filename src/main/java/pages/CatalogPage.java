@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import pages.enums.URLHolder;
 
 public class CatalogPage extends Page {
@@ -11,7 +12,7 @@ public class CatalogPage extends Page {
     private By category = By.xpath("/html/body/nav/ul/li[4]/ul/li[2]");
     private By catalog = By.xpath("/html/body/nav/ul/li[4]/a");
 
-    CatalogPage(WebDriver driver) {
+    CatalogPage(EventFiringWebDriver driver) {
         super(driver);
         this.url = URLHolder.KATALOG.getURL();
     }

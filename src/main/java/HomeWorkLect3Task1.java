@@ -1,9 +1,12 @@
-import org.openqa.selenium.WebDriver;
+import loger.Logger;
+
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import pages.*;
 
 public class HomeWorkLect3Task1 {
     public static void main(String[] args) {
-        WebDriver driver = WebDriverUtils.initChromeDriver();
+        EventFiringWebDriver driver = WebDriverUtils.initDriver(args[0]);
+        Logger logger = new Logger();
         LoginPage loginPage = new LoginPage(driver);
         MainMenu mainPage = loginPage.login();
         CatalogPage catalog = mainPage.clickKatalogButton();
