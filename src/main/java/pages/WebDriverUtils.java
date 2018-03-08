@@ -3,12 +3,14 @@ package pages;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
+import io.github.bonigarcia.wdm.OperaDriverManager;
 import loger.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 
@@ -44,9 +46,16 @@ public class WebDriverUtils {
                 return getIE();
             case "firefox":
                 return getFireFox();
+            case "opera":
+                return getOpera();
             default:
                 return getChrome();
         }
+    }
+
+    private static WebDriver getOpera() {
+        OperaDriverManager.getInstance().setup();
+        return new OperaDriver();
     }
 
     private static WebDriver getFireFox() {
