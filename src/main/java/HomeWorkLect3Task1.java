@@ -11,5 +11,7 @@ public class HomeWorkLect3Task1 {
         NewCategoryPage newCategory = category.clickNewCategoryButton();
         category = newCategory.createNewCategory();
         category.sortListByName();
+        category.logout();
+        driver.quit();
     }
 }

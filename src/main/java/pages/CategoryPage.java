@@ -25,6 +25,7 @@ public class CategoryPage extends Page {
     public void sortListByName(){
         driver.findElement(sortByName).click();
         customWait(nameOfCategoryInTable);
+        System.out.println("Category is created = " + isElementpresent(nameOfCategoryInTable));
     }
 
 
