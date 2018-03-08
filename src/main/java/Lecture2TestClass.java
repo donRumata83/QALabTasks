@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Lecture2TestClass {
     public static void main(String[] args) {
-        WebDriver webDriver = WebDriverUtils.initDriver(args[0]);
+        WebDriver webDriver = WebDriverUtils.initDriver(WebDriverUtils.getBrowserFromArgs(args));
         webDriver.get("https://www.bing.com");
         WebElement fieldSearch = webDriver.findElement(By.id("sb_form_q"));
         fieldSearch.sendKeys("selenium");

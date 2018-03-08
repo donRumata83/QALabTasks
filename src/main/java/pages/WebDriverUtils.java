@@ -58,4 +58,10 @@ public class WebDriverUtils {
         InternetExplorerDriverManager.getInstance().setup();
         return new InternetExplorerDriver();
     }
+
+    public static String getBrowserFromArgs(String[] arg) {
+        if (arg.length != 0) {
+            return arg[0];
+        } else return "";
+    }
 }

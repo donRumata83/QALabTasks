@@ -20,7 +20,6 @@ public class LoginPage extends Page {
 
     public MainMenu login() {
         driver.get(url);
-        customWait(submit);
         driver.findElement(email).sendKeys(UserData.LOGIN.getData());
         driver.findElement(pass).sendKeys(UserData.PASS.getData());
         driver.findElement(submit).click();
