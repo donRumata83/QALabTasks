@@ -1,4 +1,4 @@
-package loger;
+package application.loger;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -1,5 +1,5 @@
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import pages.*;
+import application.pages.*;
 
 public class HomeWorkLect3Task1 {
     public static void main(String[] args) {

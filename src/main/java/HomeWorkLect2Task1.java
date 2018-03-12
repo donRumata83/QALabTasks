@@ -1,7 +1,7 @@
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import pages.LoginPage;
-import pages.MainMenu;
-import pages.WebDriverUtils;
+import application.pages.LoginPage;
+import application.pages.MainMenu;
+import application.pages.WebDriverUtils;
 
 public class HomeWorkLect2Task1 {
     public static void main(String[] args) {

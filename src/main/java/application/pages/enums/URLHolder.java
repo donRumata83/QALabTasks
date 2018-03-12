@@ -1,4 +1,4 @@
-package pages.enums;
+package application.pages.enums;
 
 public enum URLHolder {
     LOGIN_PAGE ("http://prestashop-automation.qatestlab.com.ua/admin147ajyvk0/"),
