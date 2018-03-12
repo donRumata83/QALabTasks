@@ -1,8 +1,8 @@
-package pages;
+package application.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import pages.enums.URLHolder;
+import application.pages.enums.URLHolder;
 
 public class NewCategoryPage extends Page {
     private String url;

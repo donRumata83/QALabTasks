@@ -1,8 +1,8 @@
-package pages;
+package application.pages;
 
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import pages.enums.URLHolder;
-import pages.enums.UserData;
+import application.pages.enums.URLHolder;
+import application.pages.enums.UserData;
 import org.openqa.selenium.By;
 
 

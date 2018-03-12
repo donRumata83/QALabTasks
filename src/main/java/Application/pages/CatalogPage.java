@@ -1,10 +1,9 @@
-package pages;
+package application.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import pages.enums.URLHolder;
+import application.pages.enums.URLHolder;
 
 public class CatalogPage extends Page {
     private String url;

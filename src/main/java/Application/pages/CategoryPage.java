@@ -1,9 +1,8 @@
-package pages;
+package application.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import pages.enums.URLHolder;
+import application.pages.enums.URLHolder;
 
 public class CategoryPage extends Page {
     private String url;
@@ -28,6 +27,4 @@ public class CategoryPage extends Page {
         customWait(nameOfCategoryInTable);
         System.out.println("Category is created = " + isElementpresent(nameOfCategoryInTable));
     }
-
-
 }
