@@ -26,7 +26,7 @@ public class CatalogPage extends Page {
 
     public GoodsPage clickGoodsButton() {
         new Actions(driver).moveToElement(driver.findElement(catalog)).perform();
-        driver.findElement(category).click();
+        driver.findElement(goods).click();
         waitForLoad();
         return new GoodsPage(driver);
     }

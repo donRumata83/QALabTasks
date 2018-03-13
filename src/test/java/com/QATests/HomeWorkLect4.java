@@ -39,7 +39,8 @@ public class HomeWorkLect4 {
         GoodsPage goods = catalog.clickGoodsButton();
         NewGoodPage newGoods = goods.clickNewGoodButton();
         String message = newGoods.createNewGood(goodName, amount, price);
-        Assert.assertEquals(message, "", "The good didn't created correct");
+        Assert.assertEquals(message, "×\n" +
+                "Настройки обновлены.", "The good didn't created correct");
     }
 
 
