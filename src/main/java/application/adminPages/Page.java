@@ -31,8 +31,12 @@ class Page {
         waiter.until(ExpectedConditions.presenceOfElementLocated(logout));
     }
 
-    void customWait(By element){
+    void customWait(By element) {
         waiter.until(ExpectedConditions.presenceOfElementLocated(element));
+    }
+
+    void waitForGrowl(By locator) {
+        waiter.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }
 
