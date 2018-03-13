@@ -1,4 +1,4 @@
-package application.pages;
+package application.adminPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.events.EventFiringWebDriver;

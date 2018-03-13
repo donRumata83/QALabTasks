@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="ParameterExampleSuite" parallel="false" verbose="1">
+    <test name="ParameterTest">
+        <classes>
+            <parameter name="driver" value="Chrome"></parameter>
+            <class name="com.QATests.HomeWorkLect4"/>
+
+        </classes>
+    </test>
+</suite>

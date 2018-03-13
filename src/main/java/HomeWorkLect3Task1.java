@@ -1,6 +1,6 @@
-import application.pages.enums.UserData;
+import application.adminPages.enums.UserData;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import application.pages.*;
+import application.adminPages.*;
 
 public class HomeWorkLect3Task1 {
     public static void main(String[] args) {

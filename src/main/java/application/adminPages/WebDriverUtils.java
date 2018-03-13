@@ -1,4 +1,4 @@
-package application.pages;
+package application.adminPages;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
