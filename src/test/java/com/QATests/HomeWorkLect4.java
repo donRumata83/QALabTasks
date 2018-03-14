@@ -1,7 +1,7 @@
 package com.QATests;
 
-import application.UserPages.UserAllGoodsPage;
-import application.UserPages.UserStartPage;
+import application.userPages.UserAllGoodsPage;
+import application.userPages.UserStartPage;
 import application.adminPages.*;
 import application.adminPages.enums.UserData;
 import org.openqa.selenium.support.events.EventFiringWebDriver;

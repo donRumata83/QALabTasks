@@ -1,4 +1,4 @@
-package application.UserPages;
+package application.userPages;
 
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 

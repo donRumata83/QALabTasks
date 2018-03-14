@@ -1,4 +1,4 @@
-package application.UserPages;
+package application.userPages;
 
 import application.adminPages.enums.URLHolder;
 import org.openqa.selenium.By;
