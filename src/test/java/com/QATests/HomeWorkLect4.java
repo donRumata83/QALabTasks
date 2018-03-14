@@ -15,7 +15,7 @@ import java.util.Random;
 public class HomeWorkLect4 {
 
     EventFiringWebDriver driver;
-    private String goodName = UserData.NEWGOOD.getData();
+    private String goodName = UserData.NEWGOOD.getData() + new Random().nextInt(100);
     private int price = new Random().nextInt(100);
     private int amount = new Random().nextInt(100);
 

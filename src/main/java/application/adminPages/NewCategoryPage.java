@@ -24,7 +24,7 @@ public class NewCategoryPage extends Page {
         driver.findElement(cpuField).sendKeys(cpu);
         driver.findElement(submit).click();
         customWait(success);
-        System.out.println("The new category is created = " + isElementpresent(success));
+        System.out.println("The new category is created = " + isElementpresent(success) + " with message " + driver.findElement(success).getText());
         return new CategoryPage(driver);
     }
 
