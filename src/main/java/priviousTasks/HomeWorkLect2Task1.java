@@ -1,3 +1,5 @@
+package priviousTasks;
+
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import application.adminPages.LoginPage;
 import application.adminPages.MainMenu;

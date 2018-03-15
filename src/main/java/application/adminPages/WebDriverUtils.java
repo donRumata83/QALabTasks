@@ -13,11 +13,14 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 
 public class WebDriverUtils {
     public static EventFiringWebDriver initDriver(String arg) {
         WebDriver driver = getDriver(arg);
         EventFiringWebDriver webDriver = new EventFiringWebDriver(driver);
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         webDriver.register(new Logger());
         return webDriver;
     }

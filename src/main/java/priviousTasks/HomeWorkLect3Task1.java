@@ -1,3 +1,5 @@
+package priviousTasks;
+
 import application.enums.UserData;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import application.adminPages.*;
