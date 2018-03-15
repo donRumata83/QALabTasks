@@ -4,9 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
+import org.testng.Reporter;
 
-public class Logger implements WebDriverEventListener {
+public class LoggerWithReporter implements WebDriverEventListener {
 
+    private Reporter reporter;
+
+    public LoggerWithReporter(Reporter reporter) {
+        this.reporter = reporter;
+    }
 
     public void beforeAlertAccept(WebDriver webDriver) {
 
@@ -25,19 +31,19 @@ public class Logger implements WebDriverEventListener {
     }
 
     public void beforeNavigateTo(String s, WebDriver webDriver) {
-        System.out.println("Going on page " + s);
+        Reporter.log("Going on page " + s);
     }
 
     public void afterNavigateTo(String s, WebDriver webDriver) {
-        System.out.println("On page " + webDriver.getCurrentUrl());
+        Reporter.log("On page " + webDriver.getCurrentUrl());
     }
 
     public void beforeNavigateBack(WebDriver webDriver) {
-        System.out.println("On page " + webDriver.getCurrentUrl());
+        Reporter.log("On page " + webDriver.getCurrentUrl());
     }
 
     public void afterNavigateBack(WebDriver webDriver) {
-        System.out.println("On page " + webDriver.getCurrentUrl());
+        Reporter.log("On page " + webDriver.getCurrentUrl());
     }
 
     public void beforeNavigateForward(WebDriver webDriver) {
@@ -45,35 +51,35 @@ public class Logger implements WebDriverEventListener {
     }
 
     public void afterNavigateForward(WebDriver webDriver) {
-        System.out.println("On page " + webDriver.getCurrentUrl());
+        Reporter.log("On page " + webDriver.getCurrentUrl());
     }
 
     public void beforeNavigateRefresh(WebDriver webDriver) {
-        System.out.println("Refresh the page");
+        Reporter.log("Refresh the page");
     }
 
     public void afterNavigateRefresh(WebDriver webDriver) {
-        System.out.println("Page refreshed");
+        Reporter.log("Page refreshed");
     }
 
     public void beforeFindBy(By by, WebElement webElement, WebDriver webDriver) {
-        System.out.println("Searching for element " + by.toString());
+        Reporter.log("Searching for element " + by.toString());
     }
 
     public void afterFindBy(By by, WebElement webElement, WebDriver webDriver) {
-        System.out.println("Element found");
+        Reporter.log("Element found");
     }
 
     public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
-        System.out.println("Trying to click on element" + webElement.getAttribute("name"));
+        Reporter.log("Trying to click on element" + webElement.getAttribute("name"));
     }
 
     public void afterClickOn(WebElement webElement, WebDriver webDriver) {
-        System.out.println("Element is clicked");
+        Reporter.log("Element is clicked");
     }
 
     public void beforeChangeValueOf(WebElement webElement, WebDriver webDriver, CharSequence[] charSequences) {
-        System.out.println("Sending keys to element " + webElement.getAttribute("name"));
+        Reporter.log("Sending keys to element " + webElement.getAttribute("name"));
     }
 
     public void afterChangeValueOf(WebElement webElement, WebDriver webDriver, CharSequence[] charSequences) {

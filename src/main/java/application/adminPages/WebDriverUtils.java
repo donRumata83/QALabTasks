@@ -22,6 +22,12 @@ public class WebDriverUtils {
         return webDriver;
     }
 
+    public static EventFiringWebDriver initDriverWithoutLigger(String arg) {
+        WebDriver driver = getDriver(arg);
+        EventFiringWebDriver webDriver = new EventFiringWebDriver(driver);
+        return webDriver;
+    }
+
     public static WebDriver waitForOneSecond(WebDriver driver) {
         try {
             Thread.sleep(1000);
