@@ -1,4 +1,4 @@
-package application.adminPages.enums;
+package application.enums;
 
 public enum UserData {
     LOGIN("webinar.test@gmail.com"), PASS("Xcg7299bnSmMuRLp9ITw"), NEW_CATEGORY("New category"), CPU("cpu"), NEWGOOD("New Good");

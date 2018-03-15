@@ -1,12 +1,11 @@
 package application.userPages;
 
-import application.adminPages.enums.URLHolder;
+import application.enums.URLHolder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class UserStartPage extends UserPage {
     private String url;
-    private By searchField = By.className("ui-autocomplete-input");
     private By allGoodsButton = By.xpath("//a[contains(@class, \"all-product-link\")]");
     private By logo = By.id("_desktop_logo");
 

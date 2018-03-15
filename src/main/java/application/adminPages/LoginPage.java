@@ -1,8 +1,8 @@
 package application.adminPages;
 
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import application.adminPages.enums.URLHolder;
-import application.adminPages.enums.UserData;
+import application.enums.URLHolder;
+import application.enums.UserData;
 import org.openqa.selenium.By;
 
 

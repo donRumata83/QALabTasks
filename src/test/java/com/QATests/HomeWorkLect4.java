@@ -1,9 +1,10 @@
 package com.QATests;
 
 import application.userPages.UserAllGoodsPage;
+import application.userPages.UserGoodPage;
 import application.userPages.UserStartPage;
 import application.adminPages.*;
-import application.adminPages.enums.UserData;
+import application.enums.UserData;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -20,7 +21,6 @@ public class HomeWorkLect4 {
     private int amount = new Random().nextInt(100);
 
     @BeforeMethod
-
     public void setupDriver() {
         this.driver = WebDriverUtils.initDriver("");
         Reporter.setEscapeHtml(false);
@@ -33,6 +33,7 @@ public class HomeWorkLect4 {
 
     @Test
     public void testAdminPartForAddingTheNewProduct() {
+
         LoginPage loginPage = new LoginPage(driver);
         MainMenu mainPage = loginPage.login();
         CatalogPage catalog = mainPage.clickKatalogButton();
@@ -48,7 +49,10 @@ public class HomeWorkLect4 {
     public void testIfGoodPresentAndActual() {
         UserStartPage startPage = new UserStartPage(driver);
         UserAllGoodsPage userAllGoodsPage = startPage.goToAllGoodsPage();
-        Assert.assertTrue(userAllGoodsPage.isElementpresent(goodName));
-        userAllGoodsPage.clickToGoodPage(goodName);
+        Assert.assertTrue(userAllGoodsPage.isElementPresent(goodName));
+        UserGoodPage goodPage = userAllGoodsPage.clickToGoodPage(goodName);
+        Assert.assertEquals(goodName, goodPage.getGoodName().toUpperCase(), "The name is correct");
+        Assert.assertEquals(price, goodPage.getPrice(), "The price is incorrect");
+        Assert.assertEquals(amount, goodPage.getAmount(), "The amount is incorrect");
     }
 }

@@ -2,7 +2,7 @@ package application.adminPages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import application.adminPages.enums.URLHolder;
+import application.enums.URLHolder;
 
 public class NewCategoryPage extends Page {
     private String url;
