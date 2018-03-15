@@ -8,9 +8,9 @@ import application.enums.URLHolder;
 public class CatalogPage extends Page {
     private String url;
 
-    private By category = By.xpath("//li[contains(@class,'link-levelone')][3]/ul/li[2]");
-    private By goods = By.xpath("//li[contains(@class,'link-levelone')][3]/ul/li[1]");
-    private By catalog = By.xpath("//li[contains(@class,'link-levelone')][3]");
+    private By category = By.xpath("//a[contains(text(), 'категории')]");
+    private By goods = By.xpath("//a[contains(text(), 'товары')][1]");
+    private By catalog = By.xpath("//span[contains(text(), 'Каталог')]");
 
     CatalogPage(EventFiringWebDriver driver) {
         super(driver);

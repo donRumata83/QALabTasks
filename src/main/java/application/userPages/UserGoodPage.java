@@ -6,8 +6,8 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 public class UserGoodPage extends UserPage {
 
     private By name = By.className("h1");
-    private By price = By.xpath("//*[@class=\"current-price\"]/span");
-    private By amount = By.xpath("//*[@class=\"product-quantities\"]/span");
+    private By price = By.xpath("//*[@class='current-price']/span");
+    private By amount = By.xpath("//*[@class='product-quantities']/span");
 
 
     UserGoodPage(EventFiringWebDriver driver) {

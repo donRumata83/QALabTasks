@@ -10,8 +10,8 @@ public class NewGoodPage extends Page {
     private By nameOfGood = By.id("form_step1_name_1");
     private By amounts = By.id("tab_step3");
     private By prices = By.id("tab_step2");
-    private By amountField = By.xpath("//*[@id=\"form_step3_qty_0\"]");
-    private By priceField = By.xpath("//*[@id=\"form_step2_price\"]");
+    private By amountField = By.xpath("//*[@id='form_step3_qty_0']");
+    private By priceField = By.xpath("//*[@id='form_step2_price']");
     private By activator = By.className("switch-input ");
     private By submitButton = By.id("submit");
     private By created = By.className("growl");

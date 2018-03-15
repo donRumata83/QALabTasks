@@ -6,7 +6,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class UserStartPage extends UserPage {
     private String url;
-    private By allGoodsButton = By.xpath("//a[contains(@class, \"all-product-link\")]");
+    private By allGoodsButton = By.xpath("//a[contains(@class, 'all-product-link')]");
     private By logo = By.id("_desktop_logo");
 
     public UserStartPage(EventFiringWebDriver driver) {

@@ -6,7 +6,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class GoodsPage extends Page {
 
-    private By newGoodButton = By.xpath("//*[@id=\"page-header-desc-configuration-add\"]/i");
+    private By newGoodButton = By.xpath("//*[@id='page-header-desc-configuration-add']/i");
 
     GoodsPage(EventFiringWebDriver driver) {
         super(driver);
