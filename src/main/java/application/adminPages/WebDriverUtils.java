@@ -1,16 +1,20 @@
 package application.adminPages;
 
+
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import io.github.bonigarcia.wdm.OperaDriverManager;
 import application.loger.Logger;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -21,13 +25,9 @@ public class WebDriverUtils {
         WebDriver driver = getDriver(arg);
         EventFiringWebDriver webDriver = new EventFiringWebDriver(driver);
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        webDriver.manage().window().maximize();
         webDriver.register(new Logger());
-        return webDriver;
-    }
-
-    public static EventFiringWebDriver initDriverWithoutLigger(String arg) {
-        WebDriver driver = getDriver(arg);
-        EventFiringWebDriver webDriver = new EventFiringWebDriver(driver);
         return webDriver;
     }
 
@@ -74,7 +74,11 @@ public class WebDriverUtils {
 
     private static WebDriver getIE() {
         InternetExplorerDriverManager.getInstance().setup();
-        return new InternetExplorerDriver();
+        InternetExplorerOptions options = new InternetExplorerOptions().requireWindowFocus().
+                setUnhandledPromptBehaviour(UnexpectedAlertBehaviour.ACCEPT).enablePersistentHovering().destructivelyEnsureCleanSession();
+        options.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
+        options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+        return new InternetExplorerDriver(options);
     }
 
     public static String getBrowserFromArgs(String[] arg) {
