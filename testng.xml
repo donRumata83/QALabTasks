@@ -13,10 +13,5 @@
             <class name="com.QATests.HomeWorkLect4"/>
         </classes>
     </test>
-    <test name="Test ie">
-        <parameter name="driver" value="ie"/>
-        <classes>
-            <class name="com.QATests.HomeWorkLect4"/>
-        </classes>
-    </test>
+
 </suite>
