@@ -7,14 +7,11 @@ import org.openqa.selenium.WebElement;
 
 
 public class MainMenu extends Page {
-    private String url;
-
 
     private By menuButtons = By.xpath("//li[contains(@class, 'maintab')]");
 
     MainMenu(EventFiringWebDriver driver) {
         super(driver);
-        this.url = URLHolder.MAIN_MENU_PAGE.getURL();
     }
 
     public MainMenu checkForAllMenuButtons() {

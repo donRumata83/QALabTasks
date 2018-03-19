@@ -2,7 +2,7 @@
 
 <suite name="ParameterExampleSuite" parallel="false">
     <test name="BeforeTest">
-        <parameter name="driver" value="chrome"/>
+        <parameter name="driver" value="opera"/>
         <classes>
             <class name="com.QATests.HomeWorkLect4"/>
         </classes>

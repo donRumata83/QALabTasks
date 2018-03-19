@@ -5,7 +5,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import application.enums.URLHolder;
 
 public class CategoryPage extends Page {
-    private String url;
+
 
     private By newCategory = By.id("page-header-desc-category-new_category");
     private By sortByName = By.name("categoryFilter_name");
@@ -15,7 +15,6 @@ public class CategoryPage extends Page {
 
     CategoryPage(EventFiringWebDriver driver) {
         super(driver);
-        this.url = URLHolder.KATEGORY.getURL();
     }
 
     public NewCategoryPage clickNewCategoryButton() {

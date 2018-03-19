@@ -1,5 +1,6 @@
 package com.QATests;
 
+import application.Good;
 import application.userPages.UserAllGoodsPage;
 import application.userPages.UserGoodPage;
 import application.userPages.UserStartPage;
@@ -19,9 +20,7 @@ import static org.testng.Reporter.log;
 public class HomeWorkLect4 {
 
     private EventFiringWebDriver driver;
-    private String goodName = UserData.NEWGOOD.getData() + new Random().nextInt(100);
-    private int price = new Random().nextInt(100);
-    private int amount = new Random().nextInt(100);
+    private Good newGood = new Good();
 
     @BeforeMethod
     @Parameters({"driver"})
@@ -47,7 +46,7 @@ public class HomeWorkLect4 {
         GoodsPage goods = catalog.clickGoodsButton();
         NewGoodPage newGoods = goods.clickNewGoodButton();
         log("Create new good");
-        String message = newGoods.createNewGood(goodName, amount, price);
+        String message = newGoods.createNewGood(newGood.getName(), newGood.getAmount(), newGood.getPrice());
         log("Check the creating");
         Assert.assertEquals(message, "×\n" +
                 "Настройки обновлены.", "The good didn't created correct");
@@ -62,15 +61,15 @@ public class HomeWorkLect4 {
         log("Go to all goods");
         UserAllGoodsPage userAllGoodsPage = startPage.goToAllGoodsPage();
         log("Find the created good");
-        Assert.assertTrue(userAllGoodsPage.isElementPresent(goodName));
+        Assert.assertTrue(userAllGoodsPage.isElementPresent(newGood.getName()));
         log("Open the good page");
-        UserGoodPage goodPage = userAllGoodsPage.clickToGoodPage(goodName);
+        UserGoodPage goodPage = userAllGoodsPage.clickToGoodPage(newGood.getName());
         log("Check all params of the good");
-        Assert.assertEquals(goodName.toUpperCase(), goodPage.getGoodName(), "The name is correct");
+        Assert.assertEquals(newGood.getName().toUpperCase(), goodPage.getGoodName(), "The name is correct");
         log("The name is correct");
-        Assert.assertEquals(price, goodPage.getPrice(), "The price is incorrect");
+        Assert.assertEquals(newGood.getPrice(), goodPage.getPrice(), "The price is incorrect");
         log("The price is correct");
-        Assert.assertEquals(amount, goodPage.getAmount(), "The amount is incorrect");
+        Assert.assertEquals(newGood.getPrice(), goodPage.getAmount(), "The amount is incorrect");
         log("All params are wright, test case is passed");
     }
 }

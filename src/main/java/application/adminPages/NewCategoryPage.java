@@ -5,7 +5,6 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import application.enums.URLHolder;
 
 public class NewCategoryPage extends Page {
-    private String url;
 
     private By success = By.xpath("//*[@class='alert alert-success'][1]");
     private By submit = By.id("category_form_submit_btn");
@@ -15,7 +14,6 @@ public class NewCategoryPage extends Page {
 
     NewCategoryPage(EventFiringWebDriver driver) {
         super(driver);
-        this.url = URLHolder.NEWKATEGORY.getURL();
     }
 
     public CategoryPage createNewCategory(String categoryName, String cpu) {

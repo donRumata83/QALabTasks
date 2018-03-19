@@ -6,7 +6,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import application.enums.URLHolder;
 
 public class CatalogPage extends Page {
-    private String url;
+
 
     private By category = By.xpath("//a[contains(text(), 'категории')]");
     private By goods = By.xpath("//a[contains(text(), 'товары')][1]");
@@ -14,7 +14,6 @@ public class CatalogPage extends Page {
 
     CatalogPage(EventFiringWebDriver driver) {
         super(driver);
-        this.url = URLHolder.KATALOG.getURL();
     }
 
     public CategoryPage clickCategoryButton() {
