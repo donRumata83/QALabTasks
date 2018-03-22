@@ -10,7 +10,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -22,12 +24,6 @@ public class WebDriverUtils {
         EventFiringWebDriver webDriver = new EventFiringWebDriver(driver);
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         webDriver.register(new Logger());
-        return webDriver;
-    }
-
-    public static EventFiringWebDriver initDriverWithoutLigger(String arg) {
-        WebDriver driver = getDriver(arg);
-        EventFiringWebDriver webDriver = new EventFiringWebDriver(driver);
         return webDriver;
     }
 
@@ -64,7 +60,9 @@ public class WebDriverUtils {
 
     private static WebDriver getOpera() {
         OperaDriverManager.getInstance().setup();
-        return new OperaDriver();
+        OperaOptions oo = new OperaOptions();
+        oo.setBinary("D:\\Projects\\QALabTasks1\\src\\Resourse\\operadriver.exe");
+        return new OperaDriver(oo);
     }
 
     private static WebDriver getFireFox() {
@@ -74,6 +72,9 @@ public class WebDriverUtils {
 
     private static WebDriver getIE() {
         InternetExplorerDriverManager.getInstance().setup();
+        InternetExplorerOptions options = new InternetExplorerOptions();
+        options.setCapability("ignoreZoomSetting", true);
+
         return new InternetExplorerDriver();
     }
 

@@ -5,23 +5,28 @@ import application.userPages.UserAllGoodsPage;
 import application.userPages.UserGoodPage;
 import application.userPages.UserStartPage;
 import application.adminPages.*;
-import application.enums.UserData;
-
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.*;
-
-import java.util.Random;
-
 import static org.testng.Reporter.log;
 
 
 public class HomeWorkLect4 {
 
     private EventFiringWebDriver driver;
-    private Good newGood = new Good();
+    private Good newGood;
 
+    @DataProvider
+    public Object[] generateGood() {
+        Object[] tmp = {new Good()};
+        return tmp;
+    }
+
+    @BeforeClass
+    public void goodSetup() {
+        this.newGood = (Good) generateGood()[0];
+    }
     @BeforeMethod
     @Parameters({"driver"})
     public void setupDriver(String driver) {
