@@ -19,8 +19,7 @@ public class HomeWorkLect4 {
 
     @DataProvider
     public Object[] generateGood() {
-        Object[] tmp = {new Good()};
-        return tmp;
+        return new Object[]{new Good()};
     }
 
     @BeforeClass
