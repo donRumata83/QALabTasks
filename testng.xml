@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <suite name="ParameterExampleSuite" parallel="false">
-    <test name="BeforeTest">
-        <parameter name="driver" value="opera"/>
+    <test name="Test chrome">
+        <parameter name="driver" value="chrome"/>
         <classes>
             <class name="com.QATests.HomeWorkLect4"/>
         </classes>
     </test>
+    <test name="Test firefox">
+        <parameter name="driver" value="firefox"/>
+        <classes>
+            <class name="com.QATests.HomeWorkLect4"/>
+        </classes>
+    </test>
+
 </suite>
